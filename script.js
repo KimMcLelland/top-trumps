@@ -155,7 +155,18 @@ const compareCards = (firstCard, secondCard, choice) => {
     }
 }
 
-
+const optionToRepeat = () => {
+    let again = prompt("Would you like to play again? Y or N.")
+    if (again.toUpperCase() === "Y") {
+        each_round()
+    }
+    else if (again.toUpperCase() === "N") {
+        console.log("goodbye")
+    }
+    else {
+        optionToRepeat()
+    }
+}
 
 // this happens each round
 const each_round = () => {
@@ -179,7 +190,10 @@ const each_round = () => {
         console.log("I'm sorry but that statistic doesn't exist.  Please try again.");
         each_round ();
     }
+
+    optionToRepeat()
     
+
 }
 
 // split the pack at start of game

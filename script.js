@@ -40,6 +40,10 @@ let card28 = new card("air elemental", 12, 10, 3, 0, 10)
 let card29 = new card("earth elemental", 20, 10, 3, 0, 10)
 let card30 = new card("beholder", 23, 10, 22, 10, 25)
 
+let listOfCards = [card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13, card14, card15, card16, card17, card18, card19, card20, card21, card22, card23, card24, card25, card26, card27, card28, card29, card30]
+
+let player1Hand = []
+let player2Hand = []
 
 
 
@@ -298,8 +302,10 @@ const compareCards = (firstCard, secondCard, choice) => {
 const each_round = () => {
     let choice = prompt("Please pick a statistic to compare: (strength, agility, intelligence, spells, corruption).")
     if (choice === "strength" || choice === "agility" || choice === "intelligence" || choice === "spells" || choice === "corruption") {
-        let firstCard = pickCardOne()
-        let secondCard = pickCardTwo()
+        console.log(player1Hand);
+        let firstCard = pickCardOne();
+        console.log(player2Hand);
+        let secondCard = pickCardTwo();
         if (firstCard === "does not exist" || secondCard === "does not exist") {
             console.log("Sorry but one or both of those cards does not exist.  Please choose from the available trump cards.")
             each_round()
@@ -317,7 +323,18 @@ const each_round = () => {
     
 }
 
-each_round()
+const start_game = () => {
+    for(i=0; i < 15; i++) {
+        let ranNum = Math.random() * listOfCards.length
+        let shuffle = listOfCards[Math.floor(ranNum)]
+        player1Hand.push(shuffle);
+        listOfCards.splice(ranNum, 1)
+    }
+    player2Hand = listOfCards;
+    each_round ()
+}
+
+start_game ()
 
 
 

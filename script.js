@@ -1,40 +1,44 @@
 class card {
-    constructor (name, strength) {
+    constructor (name, strength, agility, intelligence, spells, corruption) {
         this.name = name;
-        this.strength = strength
+        this.strength = strength;
+        this.agility = agility;
+        this.intelligence = intelligence;
+        this.spells = spells;
+        this.corruption = corruption;
     }
 }
 
-let card1 = new card("orc", 12)
-let card2 = new card("goblin", 9)
-let card3 = new card("troll", 17)
-let card4 = new card("pixie", 5)
-let card5 = new card("elf", 10)
-let card6 = new card("dwarf", 13)
-let card7 = new card("giant", 26)
-let card8 = new card("swamp creature", 18)
-let card9 = new card("wyvern", 15)
-let card10 = new card("griffon", 16)
-let card11 = new card("dragon", 30)
-let card12 = new card("zombie", 10)
-let card13 = new card("skeleton", 10)
-let card14 = new card("ghoul", 11)
-let card15 = new card("wraith", 14)
-let card16 = new card("gargoyle", 17)
-let card17 = new card("vampire", 19)
-let card18 = new card("werewolf", 18)
-let card19 = new card("golem", 24)
-let card20 = new card("demon", 21)
-let card21 = new card("wolf", 12)
-let card22 = new card("giant spider", 13)
-let card23 = new card("eagle", 12)
-let card24 = new card("tiger", 14)
-let card25 = new card("snake", 9)
-let card26 = new card("fire elemental", 15)
-let card27 = new card("water elemental", 15)
-let card28 = new card("air elemental", 12)
-let card29 = new card("earth elemental", 20)
-let card30 = new card("beholder", 23)
+let card1 = new card("orc", 12, 10, 9, 0, 12)
+let card2 = new card("goblin", 9, 14, 11, 0, 13)
+let card3 = new card("troll", 17, 8, 6, 0, 10)
+let card4 = new card("pixie", 5, 18, 14, 2, 2)
+let card5 = new card("elf", 10, 15, 16, 4, 4)
+let card6 = new card("dwarf", 13, 12, 0, 3)
+let card7 = new card("giant", 26, 6, 10, 0, 9)
+let card8 = new card("swamp creature", 18, 8, 5, 0, 12)
+let card9 = new card("wyvern", 15, 10, 6, 0, 10)
+let card10 = new card("griffon", 16, 10, 8, 0, 8)
+let card11 = new card("dragon", 30, 8, 24, 6, 16)
+let card12 = new card("zombie", 10, 6, 2, 0, 20)
+let card13 = new card("skeleton", 10, 8, 4, 0, 20)
+let card14 = new card("ghoul", 11, 10, 8, 0, 22)
+let card15 = new card("wraith", 14, 14, 14, 3, 26)
+let card16 = new card("gargoyle", 17, 8, 8, 0, 10)
+let card17 = new card("vampire", 19, 16, 18, 8, 28)
+let card18 = new card("werewolf", 18, 10, 11, 0, 25)
+let card19 = new card("golem", 24, 8, 4, 0, 0)
+let card20 = new card("demon", 21, 20, 20, 8, 30)
+let card21 = new card("wolf", 12, 15, 6, 0, 1)
+let card22 = new card("giant spider", 13, 15, 4, 0, 3)
+let card23 = new card("eagle", 12, 18, 8, 0, 0)
+let card24 = new card("tiger", 14, 12, 7, 0, 0)
+let card25 = new card("snake", 9, 17, 4, 0, 5)
+let card26 = new card("fire elemental", 15, 10, 3, 0, 10)
+let card27 = new card("water elemental", 15, 10, 3, 0, 10)
+let card28 = new card("air elemental", 12, 10, 3, 0, 10)
+let card29 = new card("earth elemental", 20, 10, 3, 0, 10)
+let card30 = new card("beholder", 23, 10, 22, 10, 25)
 
 
 
@@ -131,6 +135,9 @@ const pickCardOne = () => {
     else if (cardChoice1 === `${card30.name}`) {
         return card30
     }
+    else {
+        return "does not exist"
+    }
 }
 
 const pickCardTwo = () => {
@@ -225,26 +232,89 @@ const pickCardTwo = () => {
     else if (cardChoice2 === `${card30.name}`) {
         return card30
     }
+    else {
+        return "does not exist"
+    }
 }
 
-const compareCards = (firstCard, secondCard) => {
-    if (firstCard.strength > secondCard.strength) {
-        console.log(`The winner is ${firstCard.name}`)
+const compareCards = (firstCard, secondCard, choice) => {
+    if (choice === "strength") {
+        if (firstCard.strength > secondCard.strength) {
+            console.log(`The winner is ${firstCard.name}`)
+        }
+        else if (secondCard.strength > firstCard.strength) {
+            console.log(`The winner is ${secondCard.name}`)
+        }
+        else    {
+            console.log("It's a tie")
+        }
     }
-    else if (secondCard.strength > firstCard.strength) {
-        console.log(`The winner is ${secondCard.name}`)
+    else if (choice === "agility") {
+        if (firstCard.agility > secondCard.agility) {
+            console.log(`The winner is ${firstCard.name}`)
+        }
+        else if (secondCard.agility > firstCard.agility) {
+            console.log(`The winner is ${secondCard.name}`)
+        }
+        else    {
+            console.log("It's a tie")
+        }
     }
-    else {
-        console.log("It's a tie")
+    else if (choice === "intelligence") {
+        if (firstCard.intelligence > secondCard.intelligence) {
+            console.log(`The winner is ${firstCard.name}`)
+        }
+        else if (secondCard.intelligence > firstCard.intelligence) {
+            console.log(`The winner is ${secondCard.name}`)
+        }
+        else    {
+            console.log("It's a tie")
+        }
+    }
+    else if (choice === "spells") {
+        if (firstCard.spells > secondCard.spells) {
+            console.log(`The winner is ${firstCard.name}`)
+        }
+        else if (secondCard.spells > firstCard.spells) {
+            console.log(`The winner is ${secondCard.name}`)
+        }
+        else    {
+            console.log("It's a tie")
+        }
+    }
+    else if (choice === "corruption") {
+        if (firstCard.corruption < secondCard.corruption) {
+            console.log(`The winner is ${firstCard.name}`)
+        }
+        else if (secondCard.corruption < firstCard.corruption) {
+            console.log(`The winner is ${secondCard.name}`)
+        }
+        else    {
+            console.log("It's a tie")
+        }
     }
 }
 
 const each_round = () => {
-    let firstCard = pickCardOne()
-    let secondCard = pickCardTwo()
-    console.log(firstCard)
-    console.log(secondCard)
-    compareCards(firstCard, secondCard)
+    let choice = prompt("Please pick a statistic to compare: (strength, agility, intelligence, spells, corruption).")
+    if (choice === "strength" || choice === "agility" || choice === "intelligence" || choice === "spells" || choice === "corruption") {
+        let firstCard = pickCardOne()
+        let secondCard = pickCardTwo()
+        if (firstCard === "does not exist" || secondCard === "does not exist") {
+            console.log("Sorry but one or both of those cards does not exist.  Please choose from the available trump cards.")
+            each_round()
+        }
+        else {
+            console.log(firstCard)
+            console.log(secondCard)
+            compareCards(firstCard, secondCard, choice)
+        }
+    }
+    else {
+        console.log("I'm sorry but that statistic doesn't exist.  Please try again.");
+        each_round ();
+    }
+    
 }
 
 each_round()

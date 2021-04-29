@@ -1,44 +1,46 @@
+// defining class, objects and arrays
 class card {
-    constructor (name, strength, agility, intelligence, spells, corruption) {
+    constructor (name, strength, agility, intelligence, spells, corruption, times_won) {
         this.name = name;
         this.strength = strength;
         this.agility = agility;
         this.intelligence = intelligence;
         this.spells = spells;
         this.corruption = corruption;
+        this.times_won = times_won;
     }
 }
 
-let card1 = new card("orc", 12, 10, 9, 0, 12)
-let card2 = new card("goblin", 9, 14, 11, 0, 13)
-let card3 = new card("troll", 17, 8, 6, 0, 10)
-let card4 = new card("pixie", 5, 18, 14, 2, 2)
-let card5 = new card("elf", 10, 15, 16, 4, 4)
-let card6 = new card("dwarf", 13, 12, 0, 3)
-let card7 = new card("giant", 26, 6, 10, 0, 9)
-let card8 = new card("swamp creature", 18, 8, 5, 0, 12)
-let card9 = new card("wyvern", 15, 10, 6, 0, 10)
-let card10 = new card("griffon", 16, 10, 8, 0, 8)
-let card11 = new card("dragon", 30, 8, 24, 6, 16)
-let card12 = new card("zombie", 10, 6, 2, 0, 20)
-let card13 = new card("skeleton", 10, 8, 4, 0, 20)
-let card14 = new card("ghoul", 11, 10, 8, 0, 22)
-let card15 = new card("wraith", 14, 14, 14, 3, 26)
-let card16 = new card("gargoyle", 17, 8, 8, 0, 10)
-let card17 = new card("vampire", 19, 16, 18, 8, 28)
-let card18 = new card("werewolf", 18, 10, 11, 0, 25)
-let card19 = new card("golem", 24, 8, 4, 0, 0)
-let card20 = new card("demon", 21, 20, 20, 8, 30)
-let card21 = new card("wolf", 12, 15, 6, 0, 1)
-let card22 = new card("giant spider", 13, 15, 4, 0, 3)
-let card23 = new card("eagle", 12, 18, 8, 0, 0)
-let card24 = new card("tiger", 14, 12, 7, 0, 0)
-let card25 = new card("snake", 9, 17, 4, 0, 5)
-let card26 = new card("fire elemental", 15, 10, 3, 0, 10)
-let card27 = new card("water elemental", 15, 10, 3, 0, 10)
-let card28 = new card("air elemental", 12, 10, 3, 0, 10)
-let card29 = new card("earth elemental", 20, 10, 3, 0, 10)
-let card30 = new card("beholder", 23, 10, 22, 10, 25)
+let card1 = new card("orc", 12, 10, 9, 0, 12, 0)
+let card2 = new card("goblin", 9, 14, 11, 0, 13, 0)
+let card3 = new card("troll", 17, 8, 6, 0, 10, 0)
+let card4 = new card("pixie", 5, 18, 14, 2, 2, 0)
+let card5 = new card("elf", 10, 15, 16, 4, 4, 0)
+let card6 = new card("dwarf", 13, 12, 0, 3, 0, 0)
+let card7 = new card("giant", 26, 6, 10, 0, 9, 0)
+let card8 = new card("swamp creature", 18, 8, 5, 0, 12, 0)
+let card9 = new card("wyvern", 15, 10, 6, 0, 10, 0)
+let card10 = new card("griffon", 16, 10, 8, 0, 8, 0)
+let card11 = new card("dragon", 30, 8, 24, 6, 16, 0)
+let card12 = new card("zombie", 10, 6, 2, 0, 20, 0)
+let card13 = new card("skeleton", 10, 8, 4, 0, 20, 0)
+let card14 = new card("ghoul", 11, 10, 8, 0, 22, 0)
+let card15 = new card("wraith", 14, 14, 14, 3, 26, 0)
+let card16 = new card("gargoyle", 17, 8, 8, 0, 10, 0)
+let card17 = new card("vampire", 19, 16, 18, 8, 28, 0)
+let card18 = new card("werewolf", 18, 10, 11, 0, 25, 0)
+let card19 = new card("golem", 24, 8, 4, 0, 0, 0)
+let card20 = new card("demon", 21, 20, 20, 8, 30, 0)
+let card21 = new card("wolf", 12, 15, 6, 0, 1, 0)
+let card22 = new card("giant spider", 13, 15, 4, 0, 3, 0)
+let card23 = new card("eagle", 12, 18, 8, 0, 0, 0)
+let card24 = new card("tiger", 14, 12, 7, 0, 0, 0)
+let card25 = new card("snake", 9, 17, 4, 0, 5, 0)
+let card26 = new card("fire elemental", 15, 10, 3, 0, 10, 0)
+let card27 = new card("water elemental", 15, 10, 3, 0, 10, 0)
+let card28 = new card("air elemental", 12, 10, 3, 0, 10, 0)
+let card29 = new card("earth elemental", 20, 10, 3, 0, 10, 0)
+let card30 = new card("beholder", 23, 10, 22, 10, 25, 0)
 
 let listOfCards = [card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13, card14, card15, card16, card17, card18, card19, card20, card21, card22, card23, card24, card25, card26, card27, card28, card29, card30]
 
@@ -46,9 +48,10 @@ let player1Hand = []
 let player2Hand = []
 
 
-
+// player 1 card pick
 const pickCardOne = () => {
-    let cardChoice1 = prompt("pick your first card")
+    console.log(player1Hand)
+    let cardChoice1 = prompt("Player 1: pick your card.")
     if (cardChoice1 === `${card1.name}`) {
         return card1
     }
@@ -144,8 +147,10 @@ const pickCardOne = () => {
     }
 }
 
+// player 2 card pick
 const pickCardTwo = () => {
-    let cardChoice2 = prompt("pick your second card")
+    console.log(player2Hand)
+    let cardChoice2 = prompt("Player 2.  Pick your card.")
     if (cardChoice2 === `${card1.name}`) {
         return card1
     }
@@ -241,13 +246,18 @@ const pickCardTwo = () => {
     }
 }
 
+// comparing the cards
 const compareCards = (firstCard, secondCard, choice) => {
     if (choice === "strength") {
         if (firstCard.strength > secondCard.strength) {
-            console.log(`The winner is ${firstCard.name}`)
+            console.log(`The winner is ${firstCard.name}`);
+            firstCard.times_won += 1;
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
         }
         else if (secondCard.strength > firstCard.strength) {
-            console.log(`The winner is ${secondCard.name}`)
+            console.log(`The winner is ${secondCard.name}`);
+            secondCard.times_won += 1;
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
         }
         else    {
             console.log("It's a tie")
@@ -255,10 +265,14 @@ const compareCards = (firstCard, secondCard, choice) => {
     }
     else if (choice === "agility") {
         if (firstCard.agility > secondCard.agility) {
-            console.log(`The winner is ${firstCard.name}`)
+            console.log(`The winner is ${firstCard.name}`);
+            firstCard.times_won += 1;
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
         }
         else if (secondCard.agility > firstCard.agility) {
-            console.log(`The winner is ${secondCard.name}`)
+            console.log(`The winner is ${secondCard.name}`);
+            secondCard.times_won += 1;
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
         }
         else    {
             console.log("It's a tie")
@@ -266,10 +280,14 @@ const compareCards = (firstCard, secondCard, choice) => {
     }
     else if (choice === "intelligence") {
         if (firstCard.intelligence > secondCard.intelligence) {
-            console.log(`The winner is ${firstCard.name}`)
+            console.log(`The winner is ${firstCard.name}`);
+            firstCard.times_won += 1;
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
         }
         else if (secondCard.intelligence > firstCard.intelligence) {
-            console.log(`The winner is ${secondCard.name}`)
+            console.log(`The winner is ${secondCard.name}`);
+            secondCard.times_won += 1;
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
         }
         else    {
             console.log("It's a tie")
@@ -277,10 +295,14 @@ const compareCards = (firstCard, secondCard, choice) => {
     }
     else if (choice === "spells") {
         if (firstCard.spells > secondCard.spells) {
-            console.log(`The winner is ${firstCard.name}`)
+            console.log(`The winner is ${firstCard.name}`);
+            firstCard.times_won += 1;
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
         }
         else if (secondCard.spells > firstCard.spells) {
-            console.log(`The winner is ${secondCard.name}`)
+            console.log(`The winner is ${secondCard.name}`);
+            secondCard.times_won += 1;
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
         }
         else    {
             console.log("It's a tie")
@@ -288,10 +310,14 @@ const compareCards = (firstCard, secondCard, choice) => {
     }
     else if (choice === "corruption") {
         if (firstCard.corruption < secondCard.corruption) {
-            console.log(`The winner is ${firstCard.name}`)
+            console.log(`The winner is ${firstCard.name}`);
+            firstCard.times_won += 1;
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
         }
         else if (secondCard.corruption < firstCard.corruption) {
-            console.log(`The winner is ${secondCard.name}`)
+            console.log(`The winner is ${secondCard.name}`);
+            secondCard.times_won += 1;
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
         }
         else    {
             console.log("It's a tie")
@@ -299,12 +325,11 @@ const compareCards = (firstCard, secondCard, choice) => {
     }
 }
 
+// this happens each round
 const each_round = () => {
     let choice = prompt("Please pick a statistic to compare: (strength, agility, intelligence, spells, corruption).")
     if (choice === "strength" || choice === "agility" || choice === "intelligence" || choice === "spells" || choice === "corruption") {
-        console.log(player1Hand);
         let firstCard = pickCardOne();
-        console.log(player2Hand);
         let secondCard = pickCardTwo();
         if (firstCard === "does not exist" || secondCard === "does not exist") {
             console.log("Sorry but one or both of those cards does not exist.  Please choose from the available trump cards.")
@@ -323,6 +348,7 @@ const each_round = () => {
     
 }
 
+// split the pack at start of game
 const start_game = () => {
     for(i=0; i < 15; i++) {
         let ranNum = Math.random() * listOfCards.length

@@ -1,4 +1,4 @@
-// defining class, objects and arrays
+// declaring class, objects and arrays
 class card {
     constructor (name, strength, agility, intelligence, spells, corruption, times_won) {
         this.name = name;
@@ -47,6 +47,8 @@ let listOfCards = [card1, card2, card3, card4, card5, card6, card7, card8, card9
 let player1Hand = []
 let player2Hand = []
 
+let currentWinner = "";
+
 
 // player 1 card pick
 const pickCardOne = () => {
@@ -54,7 +56,7 @@ const pickCardOne = () => {
     let cardChoice1 = prompt("Player 1: pick your card.")
     let x;
     for (x in player1Hand) {
-        if (cardChoice1 === `${player1Hand[x].name}` && x < 15) {
+        if (cardChoice1 === `${player1Hand[x].name}` && x < player1Hand.length) {
             return player1Hand[x];
             x ++;
         }
@@ -68,7 +70,7 @@ const pickCardTwo = () => {
     let cardChoice2 = prompt("Player 2.  Pick your card.")
     let x = 0;
     for (x in player2Hand) {
-        if (cardChoice2 === `${player2Hand[x].name}` && x < 15) {
+        if (cardChoice2 === `${player2Hand[x].name}` && x < player2Hand.length) {
             return player2Hand[x];
             x ++;
         }
@@ -76,18 +78,36 @@ const pickCardTwo = () => {
     }
 }
 
+// invented a function to remove specific item from array.  There really needs to be a method for this!!!
+const removeFromArray = (removedItem, arrayConcerned) => {
+    for(i = 0; i < arrayConcerned.length; i++){ 
+    
+        if (arrayConcerned[i] === removedItem) { 
+    
+            arrayConcerned.splice(i, 1); 
+        }
+    }
+}
+
+
 // comparing the cards
 const compareCards = (firstCard, secondCard, choice) => {
     if (choice === "strength") {
         if (firstCard.strength > secondCard.strength) {
             console.log(`The winner is ${firstCard.name}`);
             firstCard.times_won += 1;
-            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`);
+            player1Hand.push(secondCard);
+            removeFromArray(secondCard, player2Hand);
+            currentWinner="player1"
         }
         else if (secondCard.strength > firstCard.strength) {
             console.log(`The winner is ${secondCard.name}`);
             secondCard.times_won += 1;
-            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`);
+            player2Hand.push(firstCard);
+            removeFromArray(firstCard, player1Hand);
+            currentWinner="player2"
         }
         else    {
             console.log("It's a tie")
@@ -97,12 +117,18 @@ const compareCards = (firstCard, secondCard, choice) => {
         if (firstCard.agility > secondCard.agility) {
             console.log(`The winner is ${firstCard.name}`);
             firstCard.times_won += 1;
-            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`);
+            player1Hand.push(secondCard);
+            removeFromArray(secondCard, player2Hand);
+            currentWinner="player1"
         }
         else if (secondCard.agility > firstCard.agility) {
             console.log(`The winner is ${secondCard.name}`);
             secondCard.times_won += 1;
-            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`);
+            player2Hand.push(firstCard);
+            removeFromArray(firstCard, player1Hand);
+            currentWinner="player2"
         }
         else    {
             console.log("It's a tie")
@@ -112,12 +138,18 @@ const compareCards = (firstCard, secondCard, choice) => {
         if (firstCard.intelligence > secondCard.intelligence) {
             console.log(`The winner is ${firstCard.name}`);
             firstCard.times_won += 1;
-            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`);
+            player1Hand.push(secondCard);
+            removeFromArray(secondCard, player2Hand);
+            currentWinner="player1"
         }
         else if (secondCard.intelligence > firstCard.intelligence) {
             console.log(`The winner is ${secondCard.name}`);
             secondCard.times_won += 1;
-            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`);
+            player2Hand.push(firstCard);
+            removeFromArray(firstCard, player1Hand);
+            currentWinner="player2"
         }
         else    {
             console.log("It's a tie")
@@ -127,12 +159,18 @@ const compareCards = (firstCard, secondCard, choice) => {
         if (firstCard.spells > secondCard.spells) {
             console.log(`The winner is ${firstCard.name}`);
             firstCard.times_won += 1;
-            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`);
+            player1Hand.push(secondCard);
+            removeFromArray(secondCard, player2Hand);
+            currentWinner="player1"
         }
         else if (secondCard.spells > firstCard.spells) {
             console.log(`The winner is ${secondCard.name}`);
             secondCard.times_won += 1;
-            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`);
+            player2Hand.push(firstCard);
+            removeFromArray(firstCard, player1Hand);
+            currentWinner="player2"
         }
         else    {
             console.log("It's a tie")
@@ -142,12 +180,18 @@ const compareCards = (firstCard, secondCard, choice) => {
         if (firstCard.corruption < secondCard.corruption) {
             console.log(`The winner is ${firstCard.name}`);
             firstCard.times_won += 1;
-            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`)
+            console.log(`${firstCard.name} has won ${firstCard.times_won} times.`);
+            player1Hand.push(secondCard);
+            removeFromArray(secondCard, player2Hand);
+            currentWinner="player1"
         }
         else if (secondCard.corruption < firstCard.corruption) {
             console.log(`The winner is ${secondCard.name}`);
             secondCard.times_won += 1;
-            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`)
+            console.log(`${secondCard.name} has won ${secondCard.times_won} times.`);
+            player2Hand.push(firstCard);
+            removeFromArray(firstCard, player1Hand);
+            currentWinner="player2"
         }
         else    {
             console.log("It's a tie")
@@ -170,7 +214,7 @@ const optionToRepeat = () => {
 
 // this happens each round
 const each_round = () => {
-    let choice = prompt("Please pick a statistic to compare: (strength, agility, intelligence, spells, corruption).")
+    let choice = prompt(`${currentWinner} please pick a statistic to compare: (strength, agility, intelligence, spells, corruption).`)
     if (choice === "strength" || choice === "agility" || choice === "intelligence" || choice === "spells" || choice === "corruption") {
         let firstCard = pickCardOne()
         while (firstCard === undefined) {
@@ -209,6 +253,3 @@ const start_game = () => {
 }
 
 start_game ()
-
-
-

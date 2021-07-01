@@ -108,7 +108,7 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${firstCard.name} has won ${firstCard.times_won} times.`);
             player1Hand.push(secondCard);
             removeFromArray(secondCard, player2Hand);
-            currentWinner="player1"
+            currentWinner="player1";
         }
         else if (secondCard.strength > firstCard.strength) {
             alert(`The winner is ${secondCard.name}`);
@@ -116,10 +116,11 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${secondCard.name} has won ${secondCard.times_won} times.`);
             player2Hand.push(firstCard);
             removeFromArray(firstCard, player1Hand);
-            currentWinner="player2"
+            currentWinner="player2";
         }
         else    {
-            alert("It's a tie")
+            alert("It's a tie");
+            currentWinner = "";
         }
     }
     else if (choice === "agility") {
@@ -129,7 +130,7 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${firstCard.name} has won ${firstCard.times_won} times.`);
             player1Hand.push(secondCard);
             removeFromArray(secondCard, player2Hand);
-            currentWinner="player1"
+            currentWinner="player1";
         }
         else if (secondCard.agility > firstCard.agility) {
             alert(`The winner is ${secondCard.name}`);
@@ -137,10 +138,11 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${secondCard.name} has won ${secondCard.times_won} times.`);
             player2Hand.push(firstCard);
             removeFromArray(firstCard, player1Hand);
-            currentWinner="player2"
+            currentWinner="player2";
         }
         else    {
-            alert("It's a tie")
+            alert("It's a tie");
+            currentWinner = "";
         }
     }
     else if (choice === "intelligence") {
@@ -150,7 +152,7 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${firstCard.name} has won ${firstCard.times_won} times.`);
             player1Hand.push(secondCard);
             removeFromArray(secondCard, player2Hand);
-            currentWinner="player1"
+            currentWinner="player1";
         }
         else if (secondCard.intelligence > firstCard.intelligence) {
             alert(`The winner is ${secondCard.name}`);
@@ -158,10 +160,11 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${secondCard.name} has won ${secondCard.times_won} times.`);
             player2Hand.push(firstCard);
             removeFromArray(firstCard, player1Hand);
-            currentWinner="player2"
+            currentWinner="player2";
         }
         else    {
-            alert("It's a tie")
+            alert("It's a tie");
+            currentWinner = "";
         }
     }
     else if (choice === "spells") {
@@ -171,7 +174,7 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${firstCard.name} has won ${firstCard.times_won} times.`);
             player1Hand.push(secondCard);
             removeFromArray(secondCard, player2Hand);
-            currentWinner="player1"
+            currentWinner="player1";
         }
         else if (secondCard.spells > firstCard.spells) {
             alert(`The winner is ${secondCard.name}`);
@@ -179,10 +182,11 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${secondCard.name} has won ${secondCard.times_won} times.`);
             player2Hand.push(firstCard);
             removeFromArray(firstCard, player1Hand);
-            currentWinner="player2"
+            currentWinner="player2";
         }
         else    {
-            alert("It's a tie")
+            alert("It's a tie");
+            currentWinner = "";
         }
     }
     else if (choice === "corruption") {
@@ -200,11 +204,15 @@ const compareCards = (firstCard, secondCard, choice) => {
             alert(`${secondCard.name} has won ${secondCard.times_won} times.`);
             player2Hand.push(firstCard);
             removeFromArray(firstCard, player1Hand);
-            currentWinner="player2"
+            currentWinner="player2";
         }
         else    {
-            alert("It's a tie")
+            alert("It's a tie");
+            currentWinner = "";
         }
+    }
+    if (currentWinner === "") {
+        alert(`${currentWinner} wins this round!`)
     }
 }
 
@@ -225,17 +233,35 @@ const optionToRepeat = () => {
 const each_round = () => {
     let choice = prompt(`${currentWinner} please pick a statistic to compare: (strength, agility, intelligence, spells, corruption).`)
     if (choice === "strength" || choice === "agility" || choice === "intelligence" || choice === "spells" || choice === "corruption") {
-        alert("Player 1's turn.  Here's your hand:")
-        let firstCard = pickCardOne()
-        while (firstCard === undefined) {
-            alert("Sorry.  You do not have that card.  Try again.");
-            firstCard = pickCardOne()
-        }
-        alert("Player 2's turn.  Here's your hand:")
-        let secondCard = pickCardTwo()
-        while (secondCard === undefined) {
-            alert("Sorry.  You do not have that card.  Try again.");
+        let firstCard = "";
+        let secondCard = "";
+        if (currentWinner == "player2") {
+            alert("Player 2's turn.  Here's your hand:")
             secondCard = pickCardTwo()
+            while (secondCard === undefined) {
+                alert("Sorry.  You do not have that card.  Try again.");
+                secondCard = pickCardTwo()
+            }
+            alert("Player 1's turn.  Here's your hand:")
+            firstCard = pickCardOne()
+            while (firstCard === undefined) {
+                alert("Sorry.  You do not have that card.  Try again.");
+                firstCard = pickCardOne()
+            }
+        }
+        else {
+            alert("Player 1's turn.  Here's your hand:")
+            firstCard = pickCardOne()
+            while (firstCard === undefined) {
+                alert("Sorry.  You do not have that card.  Try again.");
+                firstCard = pickCardOne()
+            }
+            alert("Player 2's turn.  Here's your hand:")
+            secondCard = pickCardTwo()
+            while (secondCard === undefined) {
+                alert("Sorry.  You do not have that card.  Try again.");
+                secondCard = pickCardTwo()
+            }
         }
         alert(`${firstCard.name} versus ${secondCard.name}`)
         compareCards(firstCard, secondCard, choice)

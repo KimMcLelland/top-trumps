@@ -48,11 +48,19 @@ let player1Hand = []
 let player2Hand = []
 
 let currentWinner = "";
+let currentHand = []
 
+const displayHand = (hand) => {
+    for (let i = 0; i < hand.length; i++) {
+        currentHand.push(hand[i].name)
+    }
+    alert(currentHand)
+}
 
 // player 1 card pick
 const pickCardOne = () => {
-    alert(player1Hand)
+    currentHand = []
+    displayHand(player1Hand)
     let cardChoice1 = prompt("Player 1: pick your card.")
     let x;
     for (x in player1Hand) {
@@ -66,7 +74,8 @@ const pickCardOne = () => {
 
 // player 2 card pick
 const pickCardTwo = () => {
-    alert(player2Hand)
+    currentHand = []
+    displayHand(player2Hand)
     let cardChoice2 = prompt("Player 2.  Pick your card.")
     let x = 0;
     for (x in player2Hand) {
@@ -216,11 +225,13 @@ const optionToRepeat = () => {
 const each_round = () => {
     let choice = prompt(`${currentWinner} please pick a statistic to compare: (strength, agility, intelligence, spells, corruption).`)
     if (choice === "strength" || choice === "agility" || choice === "intelligence" || choice === "spells" || choice === "corruption") {
+        alert("Player 1's turn.  Here's your hand:")
         let firstCard = pickCardOne()
         while (firstCard === undefined) {
             alert("Sorry.  You do not have that card.  Try again.");
             firstCard = pickCardOne()
         }
+        alert("Player 2's turn.  Here's your hand:")
         let secondCard = pickCardTwo()
         while (secondCard === undefined) {
             alert("Sorry.  You do not have that card.  Try again.");
@@ -239,7 +250,7 @@ const each_round = () => {
 
 }
 
-// split the pack at start of game
+// start of game
 const start_game = () => {
     for(i=0; i < 15; i++) {
         let ranNum = Math.random() * listOfCards.length
